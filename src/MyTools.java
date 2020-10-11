@@ -11,6 +11,8 @@ import java.util.Scanner;
  * Time: 14:46
  * Project: Inlämningsuppgift2
  * Copyright: MIT
+ *
+ * Different tools for searching and checking management.
  */
 public class MyTools {
     public static boolean dateRangeInsideYear(String date) {

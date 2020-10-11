@@ -74,11 +74,11 @@ public class DataManagement extends Customer {
         this.data = data;
     }
     public void splitData(String string){
-        string.trim();
-        String id=string.substring(0,string.indexOf(","));
-        super.setId(id);
-        super.setName(string.trim().substring(string.trim().indexOf(" ")+1,string.trim().lastIndexOf(" ")));
-        super.setSurname(string.trim().substring(string.trim().lastIndexOf(" ")+1));
+        String [] split=string.split(",");
+        super.setId(split[0]);
+        String [] split2=split[1].trim().split(" ");
+        super.setName(split2[0]);
+        super.setSurname(split2[1]);
     }
     public void setCustomerData() {
         if (indexOfData != -1) {

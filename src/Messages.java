@@ -4,6 +4,8 @@
  * Time: 21:00
  * Project: Inlämningsuppgift2
  * Copyright: MIT
+ *
+ * Messages to print in the app.
  */
 public enum Messages {
     MEMBER("Member"),
@@ -27,3 +29,5 @@ public enum Messages {
         this.txt=txt;
     }
 }
+
+

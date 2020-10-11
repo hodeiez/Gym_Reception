@@ -5,6 +5,8 @@
  * Time: 13:20
  * Project: Inlämningsuppgift2
  * Copyright: MIT
+ *
+ * App made for the Gym receptionist. Checks if the visitor is a member and if it is saves his/her visit date in the training tracker file.
  */
 public class ReceptionApp {
    public ReceptionApp(String fileDB,String fileTracker) {
