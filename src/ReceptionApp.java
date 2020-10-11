@@ -1,3 +1,4 @@
+import java.nio.file.Path;
 
 /**
  * Created by Hodei Eceiza
@@ -9,7 +10,7 @@
  * App made for the Gym receptionist. Checks if the visitor is a member and if it is saves his/her visit date in the training tracker file.
  */
 public class ReceptionApp {
-   public ReceptionApp(String fileDB,String fileTracker) {
+   public ReceptionApp(Path fileDB, Path fileTracker) {
         UserInput ui=new UserInput();
         ui.searching();
         if(!ui.getInput().isEmpty()) {
@@ -21,6 +22,7 @@ public class ReceptionApp {
             statusSearch.setCustomerData();
 
             ui.answerMessage(statusSearch.toPrint(),Messages.INFO.txt);
+
             if (statusSearch.getStatus() == Messages.MEMBER.txt) {
                 DataManagement trainingTracker = new DataManagement(ui.getInput(), fileTracker);
                 trainingTracker.setData(statusSearch.getData());

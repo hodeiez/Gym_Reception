@@ -1,5 +1,9 @@
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 
 /**
@@ -12,23 +16,24 @@ import java.util.ArrayList;
  * A class for customers registering management.
  */
 public class DataManagement extends Customer {
-    private String fileName;
+    private Path file;
+   // private String fileName;
     private ArrayList<String> copyOfFile;
     private int indexOfData;
     private String search;
     private String data;
 
     DataManagement() { }
-    DataManagement(String search, String fileName) {
+    DataManagement(String search, Path file) {
         this.search = search;
-        this.fileName = fileName;
+        this.file = file;
         super.setVisitDay();
     }
     public ArrayList<String> getCopyOfFile() {
         return copyOfFile;
     }
     public void setCopyOfFile() {
-        copyOfFile = MyTools.fileToArray(fileName);
+        copyOfFile = MyTools.fileToArray(file);
     }
 
     public int findIndexOf(String search) {
@@ -54,13 +59,11 @@ public class DataManagement extends Customer {
             copyOfFile.add(getData() + "\n" + super.getVisitDay());
     }
 
-    public void saveFile(ArrayList<String> copyOfFile, String filename) {
-        try {
-            FileWriter toSave = new FileWriter(filename);
+    public void saveFile(ArrayList<String> copyOfFile, Path file) {
+        try(BufferedWriter toSave = Files.newBufferedWriter(file)){
             for (String s : copyOfFile) {
                 toSave.write(s + "\n");
             }
-            toSave.close();
         } catch (Exception e) {
             e.printStackTrace();
         }

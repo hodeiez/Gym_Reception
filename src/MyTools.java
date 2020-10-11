@@ -1,4 +1,5 @@
 import java.io.File;
+import java.nio.file.Path;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
@@ -49,10 +50,9 @@ public class MyTools {
         return null;
     }
 
-    public static ArrayList<String> fileToArray(String fileName){
+    public static ArrayList<String> fileToArray(Path file){
         ArrayList<String>tempList=new ArrayList<>();
-        try{
-            Scanner scn=new Scanner(new File(fileName));
+        try(Scanner scn=new Scanner(new File(file.toString()))){
             while(scn.hasNextLine()){
                 tempList.add(scn.nextLine());
             }
