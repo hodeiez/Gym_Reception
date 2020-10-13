@@ -16,10 +16,10 @@ import java.util.Scanner;
  * Different tools for searching and checking management.
  */
 public class MyTools {
-    public static boolean dateRangeInsideYear(String date) {
-        LocalDate now = LocalDate.now();
+    public static boolean dateRangeInsideYear(String date,String actual) {
         try{
         LocalDate before = LocalDate.parse(date);
+        LocalDate now =LocalDate.parse(actual);
         return ((int) ChronoUnit.YEARS.between(now, before)==0);}
         catch (DateTimeParseException e){
             System.out.println(Messages.ERROR.txt+e.getLocalizedMessage());

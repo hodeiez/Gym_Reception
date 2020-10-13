@@ -100,7 +100,7 @@ public class DataManagement extends Customer {
     }
 
     public void setStatus() {
-        if (MyTools.dateRangeInsideYear(getPaidDay()))
+        if (MyTools.dateRangeInsideYear(getPaidDay(),getVisitDay()))
             super.setStatus(Messages.MEMBER.txt);
         else
             super.setStatus(Messages.OLD_MEMBER.txt);

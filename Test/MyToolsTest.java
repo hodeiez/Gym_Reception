@@ -15,10 +15,17 @@ class MyToolsTest {
     DataManagement c=new DataManagement();
     @Test
     public void datesYearDistanceTest(){
-        assertEquals(MyTools.dateRangeInsideYear("2020-01-08"),true);
-        assertEquals(MyTools.dateRangeInsideYear("2020-10-08"),true);
-        assertEquals(MyTools.dateRangeInsideYear("2010-01-08"),false);
-        assertEquals(MyTools.dateRangeInsideYear(""),false);
+        assertTrue(MyTools.dateRangeInsideYear("2020-01-08","2020-08-08"));
+        assertTrue(MyTools.dateRangeInsideYear("2020-01-08","2021-01-07"));
+        assertFalse(MyTools.dateRangeInsideYear("2010-01-08","2020-08-19"));
+        assertFalse(MyTools.dateRangeInsideYear("","2020-02-19"));
+    }
+    @Test
+    public void findInStringTest(){
+        assertEquals(MyTools.findInString(" Chamade Coriola ","Chamade")," Chamade Coriola ");
+       assertEquals(MyTools.findInString(" Chamade Coriola ","chamade")," Chamade Coriola ");
+        assertEquals(MyTools.findInString(" Chamade Coriola ","coriola")," Chamade Coriola ");
+        assertEquals(MyTools.findInString(" Chamade Coriola ","CORIOLA")," Chamade Coriola ");
     }
     @Test
     public void findInLineTest()
