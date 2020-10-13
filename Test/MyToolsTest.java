@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * Copyright: MIT
  */
 class MyToolsTest {
-    DataManagement c=new DataManagement();
+
     @Test
     public void datesYearDistanceTest(){
         assertTrue(MyTools.dateRangeInsideYear("2020-01-08","2020-08-08"));
@@ -35,10 +35,10 @@ class MyToolsTest {
         assertEquals(MyTools.findInLine("8512021234, Chamade Coriola ","8512021234"),"8512021234, Chamade Coriola ");
         assertEquals(MyTools.findInLine("8512021234, Chamade Coriola ","chamade"),"8512021234, Chamade Coriola ");
         assertEquals(MyTools.findInLine("8512021234, Chamade Coriola ","coriola"),"8512021234, Chamade Coriola ");
-        assertEquals(MyTools.findInLine("8512021234, Chamade Coriola ","cor ila"),null);
-        assertEquals(MyTools.findInLine("8512021234, Chamade Coriola "," "),null);
-        assertEquals(MyTools.findInLine("8512021234, Chamade Coriola ","85"),null);
-        assertEquals(MyTools.findInLine("8512021234, Chamade Coriola ","chamadecoriola"),null);
+        assertNull(MyTools.findInLine("8512021234, Chamade Coriola ","cor ila"));
+        assertNull(MyTools.findInLine("8512021234, Chamade Coriola "," "));
+        assertNull(MyTools.findInLine("8512021234, Chamade Coriola ","85"));
+        assertNull(MyTools.findInLine("8512021234, Chamade Coriola ","chamadecoriola"));
     }
 
 
