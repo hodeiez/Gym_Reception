@@ -17,7 +17,6 @@ import java.util.ArrayList;
  */
 public class DataManagement extends Customer {
     private Path file;
-   // private String fileName;
     private ArrayList<String> copyOfFile;
     private int indexOfData;
     private String search;
